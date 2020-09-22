@@ -4,7 +4,7 @@ prefix      = "sbg"
 location    = "northeurope"
 environment = "dev"
 tags = {
-  "Owner" = "Sam.Buccieri-Gillett@uk.clara.net"
+  "Owner" = "someone@example.com"
 }
 
 resource_groups = {
@@ -44,10 +44,7 @@ vm = {
     resource_group_key = "core"
     size               = "Standard_B2ms"
     subnet_key         = "default"
-    //subnet_id           = azurerm_subnet.subnet["default"].id
     max_length = 40
-    //location            = azurerm_resource_group.rg["core"].location
-    //resource_group_name = azurerm_resource_group.rg["core"].name
     private_ip_address = "10.0.50.5"
   }
 
@@ -58,10 +55,7 @@ vm = {
     resource_group_key = "core"
     size               = "Standard_B2ms"
     subnet_key         = "default"
-    //subnet_id           = azurerm_subnet.subnet["default"].id
     max_length = 40
-    //location            = azurerm_resource_group.rg["core"].location
-    //resource_group_name = azurerm_resource_group.rg["core"].name
   }
 }
 
