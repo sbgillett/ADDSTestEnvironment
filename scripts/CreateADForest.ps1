@@ -17,3 +17,5 @@ Install-ADDSForest `
     -SysvolPath 'C:\Windows\SYSVOL' `
     -SafeModeAdministratorPassword $SMAP `
     -Force
+
+Exit 0

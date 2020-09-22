@@ -1,3 +1,4 @@
+/*
 module "domain_controllers" {
   source = "./domain_controllers"
 
@@ -33,3 +34,4 @@ module "domain_controllers" {
   admin_password                   = var.admin_password
   safe_mode_administrator_password = "34RumblyTumbly"
 }
+*/

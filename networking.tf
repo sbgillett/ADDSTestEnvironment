@@ -10,13 +10,13 @@ resource "azurecaf_naming_convention" "vnet" {
 }
 
 resource "azurerm_virtual_network" "vnet" {
-  for_each = var.networking
-
+  for_each            = var.networking
   name                = azurecaf_naming_convention.vnet[each.key].result
   address_space       = each.value.address_space
   resource_group_name = azurerm_resource_group.rg[each.value.resource_group_key].name
   location            = lookup(each.value, "location", local.global_settings.default_location)
   tags                = merge(lookup(each.value, "tags", {}), local.tags)
+  dns_servers         = [var.vm.dc1.private_ip_address]
 }
 
 //Subnets

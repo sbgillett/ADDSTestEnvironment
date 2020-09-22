@@ -1,3 +1,4 @@
+/*
 variable global_settings {}
 variable vm_dc1 {}
 variable vm_dcn {}
@@ -19,3 +20,4 @@ variable ad_forest_name {
     type = string
     default = "corp.contoso.com"
 }
+*/

@@ -35,7 +35,7 @@ variable networking {}
 
 variable subnets {}
 
-variable pdc_private_ip_address {}
+variable vm {}
 
 variable admin_username {
   type        = string
@@ -51,4 +51,13 @@ variable allow_rdp_from {
   type        = string
   default     = null
   description = "Allow RDP connections to the core vnet from these IPv4 addresses"
+}
+
+variable safe_mode_administrator_password {
+  type        = string
+  description = "Active Directory safe mode administrator password"
+}
+variable ad_forest_name {
+  type    = string
+  default = "corp.contoso.com"
 }
