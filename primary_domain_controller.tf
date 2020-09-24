@@ -75,6 +75,7 @@ resource "azurerm_windows_virtual_machine" "dc1" {
 
   lifecycle {
     ignore_changes = [
+      identity, //MSI auto-applied
       os_disk,
       admin_username,
       admin_password
@@ -83,18 +84,21 @@ resource "azurerm_windows_virtual_machine" "dc1" {
 }
 
 resource "azurerm_virtual_machine_extension" "dc1_bootstrap" {
-  name                 = "hostname"
+  name                 = "CreateADForest"
   virtual_machine_id   = azurerm_windows_virtual_machine.dc1.id
   publisher            = "Microsoft.Compute"
   type                 = "CustomScriptExtension"
   type_handler_version = "1.10"
 
-  settings = <<SETTINGS
+  settings = <<-SETTINGS
     {
         "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File ${local.dc1_bootstrap_pscmd} && exit 0",
         "fileUris": ["https://raw.githubusercontent.com/sbgillett/ADDSTestEnvironment/master/scripts/CreateADForest.ps1"]
     }
-SETTINGS
+  SETTINGS
+  lifecycle {
+    ignore_changes = all
+  }
 }
 
 locals {

@@ -36,6 +36,7 @@ variable networking {}
 variable subnets {}
 
 variable vm {}
+variable vm_domain_members {}
 
 variable admin_username {
   type        = string

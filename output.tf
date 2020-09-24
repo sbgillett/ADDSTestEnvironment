@@ -10,16 +10,14 @@ output networking {
 }
 */
 
-output pdc_ip {
+output ip_primary_domain_controller {
   sensitive   = false
   value       = data.azurerm_public_ip.dc1.ip_address
   description = "Primary Domain Controller public IP address"
 }
 
-
-/*
-output pdc_bootstrap_result {
-  sensitive = false
-  value     = module.domain_controllers.pdc_bootstrap_result
+output ip_domain_members {
+  sensitive   = false
+  value       = zipmap(values(azurerm_windows_virtual_machine.vm)[*].name, values(azurerm_public_ip.vm)[*].ip_address)
+  description = "Domain member's IP addresses"
 }
-*/

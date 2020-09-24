@@ -21,6 +21,11 @@ terraform {
       source  = "aztfmod/azurecaf"
       version = "~>0.4.3"
     }
+    time = {
+      source  = "hashicorp/time"
+      version = "~>0.5.0"
+    }
+
   }
   required_version = ">= 0.13"
 }
