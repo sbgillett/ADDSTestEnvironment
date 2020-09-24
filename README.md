@@ -1,5 +1,9 @@
+# Active Directory quick start
+
 Quickly deploy an Active Directory test environment with Terraform
 
-This version uses a Powershell script to create the root forest and DC.
+Forest creation and member server join are both automated
+
+## Example usage
 
 `terraform apply -var-file="_dev.tfvars" -auto-approve`
